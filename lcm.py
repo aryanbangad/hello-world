@@ -11,4 +11,4 @@ while(1):
 		print("lcm is",min1)
 		break
 	min1=min1+1
-	
+

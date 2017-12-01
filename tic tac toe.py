@@ -17,7 +17,7 @@ def player_input():
     
     marker = ''
     while not (marker == 'X' or marker == 'O'):
-        marker = input('Player 1: Do you want to be X or O?').upper()
+        marker = input('Player 1: Do you want to be X or O? ').upper()
 
     if marker == 'X':
         return ('X', 'O')
@@ -37,7 +37,7 @@ def win_check(board,mark):
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
 import random
 def choose_first():
-    if random.randint(0, 1) == 0:
+    if random.randint(0 , 1) == 0:
         return 'Player 2'
     else:
         return 'Player 1'
