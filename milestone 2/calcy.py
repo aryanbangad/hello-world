@@ -54,13 +54,22 @@ def calculator():
 		temp4 = (temp3 - 32) * 5/9
 		print(temp4 + " celsious")
 	elif choice == 10:
-		num = int(input("number: "))
-		if num % 2 == 0:
-			print(num, " is a even number")
-		else:
-			print(num, " is a odd number")
+		numbers = []
+		count_of_numbers = int(input("how many numbers do you want to sort: "))
+		for i in range(1,count_of_numbers + 1):
+			i = int(input("enter number "+ str(i) + ": "))
+			numbers.append(i)
+		even = []
+		odd = []
+		for num in numbers:
+			if num % 2 == 0:
+				even.append(num)
+			else:
+				odd.append(num)
+		print("the odd numbers are " ,odd)
+		print("the even numbers are " ,even)
 calculator()
-repeat = input("do you want to repeat (please answer in yes or no): ")
+repeat = input("do you want to repeat the calculator (please answer in yes or no): ")
 while repeat == "yes":
 	calculator()
 else:
