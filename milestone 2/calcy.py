@@ -1,6 +1,6 @@
 import math
 def calculator():
-	print("welcome to calculator")
+	print("welcome to calculator and converter")
 	print("choice 1: addition ")
 	print("choice 2: subtraction")
 	print("choice 3: multiply")
@@ -8,6 +8,9 @@ def calculator():
 	print("choice 5: remainder")
 	print("choice 6: square")
 	print("choice 7: squareroot")
+	print("choice 8: celsious to fahrenheit")
+	print("choice 9: fahrenheit to celsious")
+	print("choice 10: find out if number is odd or even")
 	choice = int(input("choice: "))
 	if choice == 1:
 		num1 = int(input("first num: "))
@@ -38,12 +41,26 @@ def calculator():
 		num = int(input("num: "))
 		ans = num ** 2
 		print(ans)
-	else:
+	elif choice == 7:
 		num = int(input("num: "))
 		ans = math.sqrt(num)
 		print(ans)
+	elif choice == 8:
+		temp = int(input("temperature: "))
+		temp2 = (9/5) * temp + 32
+		print(temp2 + " fahrenheit")
+	elif choice ==  9:
+		temp3 = int(input("temperature: "))
+		temp4 = (temp3 - 32) * 5/9
+		print(temp4 + " celsious")
+	elif choice == 10:
+		num = int(input("number: "))
+		if num % 2 == 0:
+			print(num, " is a even number")
+		else:
+			print(num, " is a odd number")
 calculator()
-repeat = input("do you want to repeat it please answer in yes or no: ")
+repeat = input("do you want to repeat (please answer in yes or no): ")
 while repeat == "yes":
 	calculator()
 else:

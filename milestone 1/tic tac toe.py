@@ -1,7 +1,23 @@
-#player1 = input
+print('Welcome to Tic Tac Toe!')
+
+player1 = input("what is your name player 1?: ")
+player2 = input("what is your name player 2?: ")
+def example_board():
+	print('   |   | ')
+	print(' 7 | 8 | 9')
+	print('   |   | ')
+	print('------------')
+	print('   |   | ')
+	print(' 4 | 5 | 6')
+	print('   |   | ')
+	print('-----------')
+	print('   |   | ')
+	print(' 1 | 2 | 3')
+	print('   |   | ')
+	print('enter positoin by reffering to the board')
+	print('')
+	
 def display_board(board):
-    
-    
     print('   |   |')
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('   |   |')
@@ -17,7 +33,7 @@ def player_input():
     
     marker = ''
     while not (marker == 'X' or marker == 'O'):
-        marker = input('Player 1: Do you want to be X or O? ').upper()
+        marker = input(player1+ ' Do you want to be X or O? ').upper()
 
     if marker == 'X':
         return ('X', 'O')
@@ -38,9 +54,9 @@ def win_check(board,mark):
 import random
 def choose_first():
     if random.randint(0 , 1) == 0:
-        return 'Player 2'
+        return player2
     else:
-        return 'Player 1'
+        return player1
 def space_check(board, position):
     
     return board[position] == ' '
@@ -49,19 +65,20 @@ def full_board_check(board):
         if space_check(board, i):
             return False
     return True
-def player_choice(board):
+def player_choice(board,name):
     position = ' '
     while position not in '1 2 3 4 5 6 7 8 9'.split() or not space_check(board, int(position)):
         
-        position = input('Choose your next position: (1-9) ')
+        position = input('Choose your next position '+ name +' (1-9) ')
     return int(position)
 def replay():
     
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
-print('Welcome to Tic Tac Toe!')
+	
+
 
 while True:
-    # Reset the board
+    
     theBoard = [' '] * 10
     player1_marker, player2_marker = player_input()
     turn = choose_first()
@@ -69,16 +86,18 @@ while True:
     game_on = True
 
     while game_on:
-        if turn == 'Player 1':
+        if turn == player1:
             # Player1's turn.
-            
+            print('this is a example board:')
+            example_board()
+			
             display_board(theBoard)
-            position = player_choice(theBoard)
+            position = player_choice(theBoard,turn)
             place_marker(theBoard, player1_marker, position)
 
             if win_check(theBoard, player1_marker):
                 display_board(theBoard)
-                print('Congratulations! player1 has won the game!')
+                print('Congratulations! '+player1+  ' has won the game!')
                 game_on = False
             else:
                 if full_board_check(theBoard):
@@ -86,18 +105,19 @@ while True:
                     print('The game is a draw!')
                     break
                 else:
-                    turn = 'Player 2'
+                    turn = player2
 
         else:
             # Player2's turn.
-            
+            print('this is a example board:')
+            example_board()
             display_board(theBoard)
-            position = player_choice(theBoard)
+            position = player_choice(theBoard,turn)
             place_marker(theBoard, player2_marker, position)
 
             if win_check(theBoard, player2_marker):
                 display_board(theBoard)
-                print('Player 2 has won!')
+                print('congratulations! '+player2+ ' has won the game!')
                 game_on = False
             else:
                 if full_board_check(theBoard):
@@ -105,7 +125,7 @@ while True:
                     print('The game is a draw!')
                     break
                 else:
-                    turn = 'Player 1'
+                    turn = player1
 
     if not replay():
         break	
