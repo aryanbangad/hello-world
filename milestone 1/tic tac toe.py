@@ -14,8 +14,8 @@ def example_board():
 	print('   |   | ')
 	print(' 1 | 2 | 3')
 	print('   |   | ')
-	print('enter positoin by reffering to the board')
-	print('')
+	print('enter positoin by reffering to the example board')
+	
 	
 def display_board(board):
     print('   |   |')
