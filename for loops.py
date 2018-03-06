@@ -10,9 +10,11 @@ tup = [(9,0),(3,4),(8,9),(6,7)]
 for (v1,v2) in tup:
 	print(v1)
 	print(v2)
-print("dic")
+print("dict")
 dic = {"k1" :1, "k2" :2, "k3" :3}
 for k,v in dic.items():
 	print(k)
 	print(v)
+
+
 
